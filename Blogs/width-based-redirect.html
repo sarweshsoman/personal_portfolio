@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Width Based Redirect</title>
+  <link rel="stylesheet" href="assets/css/blog.css">
+
+  <style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+    }
+
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: #000; /* Solid black */
+        color: #ffffff;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar .logo h2 {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #f39c12; /* Gold color on hover */
+    }
+
+    .hamburger-menu {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        transition: transform 0.3s ease;
+    }
+
+    /* Blog Post Container */
+    .blog-post-container {
+        margin-top: 120px; /* Space for fixed navbar */
+        padding: 40px 20px;
+        background-color: #ffffff;
+        color: #333;
+        text-align: center; /* Centers all text inside the blog post container */
+    }
+
+    .blog-post-header {
+        text-align: center; /* Ensures the title and image are centered */
+        margin-bottom: 0; /* Remove any bottom margin */
+    }
+
+    .blog-post-header h1 {
+        font-size: 36px;
+        margin-bottom: 0; /* Remove the default margin below the h1 */
+    }
+
+    /* Blog Post Image */
+    .blog-post-image {
+        width: auto; /* Maintains aspect ratio based on height */
+        height: 400px; /* Set the desired height */
+        max-width: 100%; /* Ensures the image does not overflow */
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+
+    /* Blog Post Body */
+    .blog-post-body {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: left; /* Aligns the content to the left */
+        padding-top: 20px; /* Adds a slight space if needed */
+    }
+
+    .blog-post-body p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        line-height: 1.8;
+    }
+
+    /* Blog Post Footer */
+    .blog-post-footer {
+        text-align: center; /* Centers the footer text */
+        margin-top: 40px;
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 80px 20px;
+        background: #000;
+        color: #fff;
+        text-align: center;
+    }
+
+    .contact h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .contact-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .contact-container p {
+        margin-bottom: 20px;
+    }
+
+    .copy-button {
+        padding: 10px 20px;
+        background: #f39c12;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .copy-button:hover {
+        background: #e67e22;
+    }
+
+    .social-links {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-links a {
+        color: #f39c12;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .social-links a:hover {
+        text-decoration: underline;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Design for Hamburger Menu */
+    @media (max-width: 768px) {
+        .hamburger-menu {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background: #000;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+    }
+  </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>Sarwesh Soman</h2>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/blog.html">Blogs</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" aria-label="Toggle navigation menu">&#9776;</div>
+    </header>
+
+    <!-- Blog Content Section -->
+    <main>
+        <section id="blog-post-1" class="blog-post-container">
+            <div class="blog-post-header">
+                <h1>Building a Screen-Width-Based Redirect for a Seamless Web Experience</h1>
+            </div>
+        </section>
+        
+        <section id="blog-post-2" class="blog-post-container">
+            <!-- Blog Post Body -->
+            <div class="blog-post-body">
+                <p>In today’s web development world, creating websites that look great and function seamlessly across a wide variety of devices is crucial. One common approach is responsive design, where the layout adjusts to fit the size of the screen. But what if you could take it a step further and actually redirect users to specific versions of your website based on their screen size? Let’s explore an alternative approach I once used: detecting the screen width on page load and redirecting users to dedicated versions of the site optimized for their device.</p>
+
+                <h2>What Is Screen-Width-Based Redirect?</h2>
+                <p>In a traditional responsive design, the same HTML content adapts dynamically to different screen sizes using CSS media queries. However, an alternative method I explored involves detecting the width of the screen when a user visits the site for the first time. Based on the width, the website then automatically redirects users to a different version of the page optimized for either mobile, tablet, or desktop screens.</p>
+
+                <h2>How Does It Work?</h2>
+                <p>Here’s a simple breakdown of how the redirect works:</p>
+                <ul>
+                    <li><strong>Page Load Detection:</strong> When a user visits the website, JavaScript detects the screen width using <code>window.innerWidth</code>, which returns the width of the viewport in pixels.</li>
+                    <li><strong>Conditional Redirect:</strong> Based on the width of the screen, the script decides whether the user should be redirected to the mobile, tablet, or desktop version of the site.</li>
+                    <li><strong>Redirection Logic:</strong> The page then changes the <code>window.location.href</code> to the corresponding HTML file (e.g., <code>mobile-home.html</code> or <code>desktop-home.html</code>).</li>
+                </ul>
+
+                <h2>Embedding the Copiable Code</h2>
+                <p>Here’s the copiable code for the screen-width-based redirect using JavaScript:</p>
+                
+                <!-- Copiable Code Section -->
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Responsive Redirect&lt;/title&gt;
+  &lt;style&gt;
+    /* Basic styling for the redirect page */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Redirecting...&lt;/h1&gt;
+  &lt;script&gt;
+    document.addEventListener("DOMContentLoaded", () =&gt; {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth &lt;= 768) {
+        // Redirect to the mobile version
+        window.location.href = "Mobile/mobile-home.html"; 
+      } else {
+        // Redirect to the desktop version
+        window.location.href = "Desktop/desktop-home.html";
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                
+                <h2>Pros of Using a Screen-Width-Based Redirect</h2>
+                <ul>
+                    <li><strong>Custom Experience:</strong> This method allows for highly customized experiences for different device types. You can design entirely separate pages with distinct layouts, navigation, and content optimized for specific screen sizes.</li>
+                    <li><strong>Performance Benefits:</strong> If your site’s mobile version is stripped down for faster performance, users on smaller screens will get a faster load time without loading unnecessary content.</li>
+                    <li><strong>Control Over Content:</strong> With separate versions of the website, you have greater control over what content appears on each version. This can be particularly useful for content-heavy sites or sites that require different interactions on mobile versus desktop.</li>
+                    <li><strong>Simpler Layout Logic:</strong> Since you’re redirecting users to entirely different pages for mobile, tablet, and desktop, you don’t need to deal with complex CSS and media queries. This could reduce the complexity of your stylesheets and make them easier to maintain.</li>
+                </ul>
+
+                <h2>Challenges and Considerations</h2>
+                <ul>
+                    <li><strong>SEO Concerns:</strong> Redirecting users to different URLs based on their device may confuse search engines and could result in duplicate content issues if not handled properly. Google and other search engines typically recommend using responsive design to ensure that a single URL works across all devices. However, with careful handling (like using the correct <code>rel=canonical</code> tags), you can avoid major SEO pitfalls.</li>
+                    <li><strong>Inconsistent User Experience:</strong> Some users may have their browser window resized or use devices that are somewhere in between mobile and desktop sizes. In such cases, the redirect might not be as seamless, causing a suboptimal experience.</li>
+                    <li><strong>Maintaining Multiple Versions:</strong> You’ll need to maintain multiple HTML files for each version of the site (mobile, tablet, desktop), which could increase your development and maintenance workload.</li>
+                    <li><strong>JavaScript Dependency:</strong> The redirect relies on JavaScript to detect the screen width and perform the redirect. If the user has JavaScript disabled or there’s a loading issue with the script, the redirect may not work, leading to a poor user experience.</li>
+                </ul>
+
+                <h2>When to Use This Approach</h2>
+                <ul>
+                    <li><strong>Distinct Mobile and Desktop Experiences:</strong> When your website has very different experiences for mobile and desktop users (e.g., a mobile-specific app-like interface and a feature-rich desktop version).</li>
+                    <li><strong>Simple Websites with Minimal Content:</strong> If your site is simple enough that maintaining separate HTML files for different devices makes sense, this method can save you the trouble of managing complex CSS.</li>
+                    <li><strong>Performance Considerations:</strong> If you want to optimize each version of the site independently and serve minimal content to mobile users for faster performance.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>While responsive design remains the most common and recommended approach for modern websites, screen-width-based redirects can offer a unique solution for cases where you want complete control over the user experience across different devices. By detecting the user’s screen size on initial load, you can ensure they get the best possible experience tailored to their device. However, like any approach, it’s important to weigh the pros and cons, particularly in terms of SEO, user experience, and long-term maintainability.</p>
+            </div>
+
+            <!-- Call to action or concluding statement -->
+            <div class="blog-post-footer">
+                <p>Thank you for reading! If you enjoyed this post, feel free to share it with others and reach out.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <div class="contact-container">
+            <p>Email: <span id="email">sarweshsoman@gmail.com</span></p>
+            <button class="copy-button" onclick="copyEmail()" aria-label="Copy email">Copy Email</button>
+            <p>Connect with me:</p>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/sarweshsoman" target="_blank" aria-label="LinkedIn Profile">LinkedIn</a></li>
+                <li><a href="https://github.com/sarweshsoman" target="_blank" aria-label="GitHub Profile">GitHub</a></li>
+                <li><a href="https://x.com/sarweshsoman" target="_blank" aria-label="X Profile">X</a></li> <!-- New Twitter link -->
+                <li><a href="https://instagram.com/sarweshsoman" target="_blank" aria-label="Instagram Profile">Instagram</a></li> <!-- New Instagram link -->
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Hamburger menu toggle logic
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Copy Email to Clipboard
+        const copyButton = document.querySelector(".copy-button");
+        const emailElement = document.getElementById("email");
+
+        if (copyButton && emailElement) {
+            copyButton.addEventListener("click", () => {
+                navigator.clipboard.writeText(emailElement.innerText).then(() => {
+                    alert("Email address copied to clipboard!");
+                }).catch(() => {
+                    alert("Failed to copy email address. Please try again.");
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>

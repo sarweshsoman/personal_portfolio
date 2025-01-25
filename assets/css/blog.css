@@ -1,0 +1,271 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #000;
+    color: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Gold color on hover */
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+
+
+/* Main Header */
+header {
+    text-align: center;
+    padding: 100px 20px 20px;
+    background-color: #ffffff; /* Saffron */
+    color: rgb(0, 0, 0);
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Blog Container */
+#blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.blog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+.blog-row {
+    display: flex;
+    flex-direction: column; /* Change from row to column */
+    align-items: center; /* Center all content horizontally */
+    justify-content: center; /* Center content vertically */
+    width: 100%;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #ff9933; /* Saffron */
+    color: white;
+    text-align: center; /* Center the text */
+    transition: background-color 0.3s ease;
+}
+
+.blog-row a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: center; /* Center text of the links */
+}
+
+.blog-row h2 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center; /* Center the h2 text */
+}
+
+.blog-row p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    text-align: center; /* Center the paragraph text */
+}
+
+.blog-row:hover {
+    background-color: #e68a00; /* Darker saffron */
+}
+
+/* Pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+#pagination button {
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#pagination button:hover {
+    background: #e67e22;
+}
+
+#pagination button:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 20px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-container p {
+    margin-bottom: 20px;
+}
+
+.copy-button {
+    padding: 10px 20px;
+    background: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.copy-button:hover {
+    background: #e67e22;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Responsive Design for Hamburger Menu */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}

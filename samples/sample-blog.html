@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post 1 - Sarwesh Soman</title>
+    <link rel="stylesheet" href="assets/css/blog.css">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #000; /* Solid black */
+            color: #ffffff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .logo h2 {
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12; /* Gold color on hover */
+        }
+
+        .hamburger-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+            transition: transform 0.3s ease;
+        }
+
+        /* Blog Post Container */
+        .blog-post-container {
+            margin-top: 120px; /* Space for fixed navbar */
+            padding: 40px 20px;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center; /* Centers all text inside the blog post container */
+        }
+
+        .blog-post-header {
+            text-align: center; /* Ensures the title and image are centered */
+        }
+
+        .blog-post-header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Blog Post Image */
+        .blog-post-image {
+            width: auto; /* Maintains aspect ratio based on height */
+            height: 400px; /* Set the desired height */
+            max-width: 100%; /* Ensures the image does not overflow */
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        /* Blog Post Body */
+        .blog-post-body {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center; /* Centers all text inside the blog post body */
+        }
+
+        .blog-post-body p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Blog Post Footer */
+        .blog-post-footer {
+            text-align: center; /* Centers the footer text */
+            margin-top: 40px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-container p {
+            margin-bottom: 20px;
+        }
+
+        .copy-button {
+            padding: 10px 20px;
+            background: #f39c12;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .copy-button:hover {
+            background: #e67e22;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Links */
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center; /* Centers the social links */
+            gap: 10px;
+        }
+
+        .social-links a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design for Hamburger Menu */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #000;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                border-radius: 5px;
+                padding: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>Sarwesh Soman</h2>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" aria-label="Toggle navigation menu">&#9776;</div>
+    </header>
+
+    <!-- Blog Content Section -->
+    <main>
+        <section id="blog-post" class="blog-post-container">
+            <div class="blog-post-header">
+                <h1>Blog Post 1 Title</h1>
+                <!-- Add the image related to the blog post here -->
+                <img src="/projects/tetris.png" alt="Image related to the blog post" class="blog-post-image">
+            </div>
+
+            <!-- Blog Post Body -->
+            <div class="blog-post-body">
+                <p>
+                    <!-- Add your introduction or summary of the blog post here -->
+                    Welcome to my blog! In this post, I’ll be discussing [insert topic]. This blog post will cover ...
+                </p>
+                <p>
+                    <!-- Main content of the blog post goes here -->
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vehicula ipsum at cursus varius. Sed
+                    euismod, nunc id feugiat faucibus, sapien eros pretium nisi, a dapibus sem ipsum sed nulla. Ut at
+                    sollicitudin turpis, vel consequat odio. Nulla facilisi.
+                </p>
+                <p>
+                    <!-- Continue your content or add more paragraphs here -->
+                    Curabitur eget turpis ac risus tempor malesuada ac sit amet nunc. Integer vitae sapien viverra,
+                    lacinia ante vitae, lobortis arcu. Sed venenatis velit est, vel tristique purus accumsan nec.
+                    Vivamus egestas ipsum id facilisis tempor.
+                </p>
+                <a href="https://rzp.io/rzp/9mr60Ckl" >Register Here</a>
+
+                <!-- Additional content or sections for the blog post -->
+                <section id="sub-section">
+                    <h2>Subheading 1</h2>
+                    <p>
+                        <!-- Add content for subheading 1 -->
+                        Fusce aliquam dolor a feugiat sollicitudin. Ut euismod, elit at vehicula posuere, magna erat
+                        aliquet elit, sit amet posuere enim arcu ut nisi.
+                    </p>
+                </section>
+
+                <section id="sub-section">
+                    <h2>Subheading 2</h2>
+                    <p>
+                        <!-- Add content for subheading 2 -->
+                        Vivamus euismod, neque sed tincidunt tincidunt, lectus turpis feugiat risus, nec laoreet ligula
+                        enim at ante. Aliquam erat volutpat.
+                    </p>
+                </section>
+            </div>
+
+            <!-- Call to action or concluding statement -->
+            <div class="blog-post-footer">
+                <p>
+                    Thank you for reading! If you enjoyed this post, feel free to share it with others or leave a comment below.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <div class="contact-container">
+            <p>Email: <span id="email">sarweshsoman@gmail.com</span></p>
+            <button class="copy-button" onclick="copyEmail()" aria-label="Copy email">Copy Email</button>
+            <p>Connect with me:</p>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/sarweshsoman" target="_blank" aria-label="LinkedIn Profile">LinkedIn</a></li>
+                <li><a href="https://github.com/sarweshsoman" target="_blank" aria-label="GitHub Profile">GitHub</a></li>
+                <li><a href="https://x.com/sarweshsoman" target="_blank" aria-label="X Profile">X</a></li> <!-- New Twitter link -->
+                <li><a href="https://instagram.com/sarweshsoman" target="_blank" aria-label="Instagram Profile">Instagram</a></li> <!-- New Instagram link -->
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Hamburger menu toggle logic
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Toggle the navigation menu visibility when the hamburger icon is clicked
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Copy Email to Clipboard
+        const copyButton = document.querySelector(".copy-button");
+        const emailElement = document.getElementById("email");
+
+        if (copyButton && emailElement) {
+            copyButton.addEventListener("click", () => {
+                navigator.clipboard.writeText(emailElement.innerText).then(() => {
+                    alert("Email address copied to clipboard!");
+                }).catch(() => {
+                    alert("Failed to copy email address. Please try again.");
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>

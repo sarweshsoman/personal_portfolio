@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paginated Blog</title>
+  <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>Sarwesh Soman</h2>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" aria-label="Toggle navigation menu">&#9776;</div>
+    </header>
+
+    <!-- Main Header -->
+    <header>
+        <h1>My Blog</h1>
+        <p>Explore interesting articles and updates</p>
+    </header>
+
+    <main>
+        <div id="blog-container">
+            <!-- Blog rows will be dynamically managed by JavaScript -->
+        </div>
+
+        <div id="pagination">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <div class="contact-container">
+            <p>Email: <span id="email">sarweshsoman@gmail.com</span></p>
+            <button class="copy-button" onclick="copyEmail()" aria-label="Copy email">Copy Email</button>
+            <p>Connect with me:</p>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/sarweshsoman" target="_blank" aria-label="LinkedIn Profile">LinkedIn</a></li>
+                <li><a href="https://github.com/sarweshsoman" target="_blank" aria-label="GitHub Profile">GitHub</a></li>
+                <li><a href="https://x.com/sarweshsoman" target="_blank" aria-label="X Profile">X</a></li> <!-- New Twitter link -->
+                <li><a href="https://instagram.com/sarweshsoman" target="_blank" aria-label="Instagram Profile">Instagram</a></li> <!-- New Instagram link -->
+            </ul>
+        </div>
+    </section>
+
+    <script src="assets/js/blog.js"></script>
+</body>
+</html>

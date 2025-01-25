@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Photo Gallery</title>
+    <link rel="stylesheet" href="assets/css/photography.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <h2>Sarwesh Soman</h2>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" aria-label="Toggle navigation menu">&#9776;</div>
+    </header>
+
+    <div class="container">
+        <h2 class="title">Photo Gallery</h2>
+        <div class="photo-gallery">
+            <!-- Column 1 -->
+            <div class="column">
+                <div class="photo">
+                    <img src="projects/4096.png" alt="Photo 1">
+                </div>
+                <div class="photo">
+                    <img src="projects/brick breaker.png" alt="Photo 2">
+                </div>
+                <div class="photo">
+                    <img src="assets/images/background.jpg" alt="Photo 3">
+                </div>
+                <div class="photo">
+                    <img src="assets/images/Profile Picture.jpg" alt="Photo 4">
+                </div>
+                <div class="photo">
+                    <img src="projects/Buddhibal.png" alt="Photo 5">
+                </div>
+                <div class="photo">
+                    <img src="projects/Noteforge.png" alt="Photo 6">
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="column">
+                <div class="photo">
+                    <img src="assets/images/Profile Picture.jpg" alt="Photo 4">
+                </div>
+                <div class="photo">
+                    <img src="projects/Buddhibal.png" alt="Photo 5">
+                </div>
+                <div class="photo">
+                    <img src="projects/Noteforge.png" alt="Photo 6">
+                </div>
+                <div class="photo">
+                    <img src="projects/tetris.png" alt="Photo 7">
+                </div>
+                <div class="photo">
+                    <img src="projects/brick breaker.png" alt="Photo 8">
+                </div>
+                <div class="photo">
+                    <img src="projects/Noteforge.png" alt="Photo 9">
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="column">
+                <div class="photo">
+                    <img src="projects/tetris.png" alt="Photo 7">
+                </div>
+                <div class="photo">
+                    <img src="projects/brick breaker.png" alt="Photo 8">
+                </div>
+                <div class="photo">
+                    <img src="projects/Noteforge.png" alt="Photo 9">
+                </div>
+                <div class="photo">
+                    <img src="projects/4096.png" alt="Photo 1">
+                </div>
+                <div class="photo">
+                    <img src="projects/brick breaker.png" alt="Photo 2">
+                </div>
+                <div class="photo">
+                    <img src="assets/images/background.jpg" alt="Photo 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Me</h2>
+        <div class="contact-container">
+            <p>Email: <span id="email">sarweshsoman@gmail.com</span></p>
+            <button class="copy-button" onclick="copyEmail()" aria-label="Copy email">Copy Email</button>
+            <p>Connect with me:</p>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/sarweshsoman" target="_blank" aria-label="LinkedIn Profile">LinkedIn</a></li>
+                <li><a href="https://github.com/sarweshsoman" target="_blank" aria-label="GitHub Profile">GitHub</a></li>
+                <li><a href="https://x.com/sarweshsoman" target="_blank" aria-label="X Profile">X</a></li> <!-- New Twitter link -->
+                <li><a href="https://instagram.com/sarweshsoman" target="_blank" aria-label="Instagram Profile">Instagram</a></li> <!-- New Instagram link -->
+            </ul>
+        </div>
+    </section>
+
+    <script src="/assets/js/photography.js"></script>
+
+    <!-- JavaScript for Hamburger Menu Toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const navLinks = document.querySelector(".nav-links");
+
+            hamburgerMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
